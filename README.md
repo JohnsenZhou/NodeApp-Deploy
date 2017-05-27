@@ -4,6 +4,16 @@
 ---
 CentOS 7
 
+服务器可视化管理工具（GUI）
+---
+MacOS系统推荐使用Cyberduck（小黄鸭）
+
+![Cyberduck](https://cdn.cyberduck.io/img/cyberduck-icon-128.png)
+
+Windows系统推荐使用 FileZilla
+
+![FileZilla](https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=1002748247,1106168081&fm=58)
+
 准备 (Requirement)
 ---
 
@@ -23,9 +33,9 @@ CentOS 7
 
 这里推荐用第二种。
 
-### Install git[^1]
+### Install git
 
-[^1]: 如果系统有自带的 git，可执行 `yum remove -y git` 删除
+> 如果系统有自带的 git，可执行 `yum remove -y git` 删除
 
 1. 安装倚赖：
 
@@ -33,7 +43,7 @@ CentOS 7
     yum install -y curl-devel expat-devel gettext-devel openssl-devel zlib-devel gcc perl-ExtUtils-MakeMaker
     ```
   
-1. 前往 [github](https://github.com/git/git/releases) 下载安装包，拷贝至 `/usr/src`，或者直接用 wget：
+1. 前往 [github](https://github.com/git/git/releases) 下载安装包，拷贝至 `/usr/src`(拷贝可通过可视化工具直接将相应文件拖入目标文件夹)，或者直接用 wget：
 
     ```
     cd /usr/src
@@ -61,15 +71,15 @@ CentOS 7
 
     ```
     cd /usr/src
-    wget https://nodejs.org/dist/v6.9.1/node-v6.9.1-linux-x64.tar.xz
-    tar xvf node-v6.9.1-linux-x64.tar.xz
+    wget https://nodejs.org/dist/v6.10.3/node-v6.10.3-linux-x64.tar.gz
+    tar xvf node-v6.10.3-linux-x64.tar.gz
     ```
   
 1. 创建软链接至 `/usr/local/bin`
 
     ```
-    ln -s /usr/src/node-v6.9.1-linux-x64/bin/node /usr/local/bin/node
-    ln -s /usr/src/node-v6.9.1-linux-x64/bin/npm /usr/local/bin/npm
+    ln -s /usr/src/node-v6.10.3-linux-x64/bin/node /usr/local/bin/node
+    ln -s /usr/src/node-v6.10.3-linux-x64/bin/npm /usr/local/bin/npm
     ```
   
 1. 检查 node 与 npm 是否生效
@@ -85,7 +95,7 @@ CentOS 7
     npm config set prefix $HOME/.node
     ```
 
-1. 添加国内 registry:
+1. 添加国内npm淘宝镜像:
 
     ```
     npm config set registry https://registry.npm.taobao.org/
@@ -109,7 +119,22 @@ npm install -g pm2
 
 布署分为不用 git 和基于 git 两种方式。前者主要是用于 git 代码网络属于内网的环境下。
 
-不用 git 的话，下载公司 gitlab 项目的 tag 包，拷贝至目标主机。
+不用 git 的话，下载 git 项目的 tag 包或者将项目文件直接拷贝至目标主机。
+
+**不基于 git 部署**
+
+1. 安装依赖
+
+    ``` 
+    // 安装 node 倚赖包
+    npm install --production
+    ```
+1. 运行项目
+
+    ```
+    // 如果不习惯用pm2来管理可以直接通过一些命令，pm2下面有详解
+    node app.js
+    ```
 
 **推荐使用 git**
 
