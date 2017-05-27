@@ -216,4 +216,4 @@ git 的传输协议有 https 和 ssh 两种，我们采用更加安全快速的�
 
 ### 致谢
 
-> 感谢导师 **Roshanca** 提供帮助，可至 [Roshanca的博客](http://roshanca.com/) 查看更多优质文章。
+> 感谢导师 **Roshanca** 提供帮助.🤠 🤠 🤠
