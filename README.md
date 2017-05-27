@@ -129,12 +129,13 @@ npm install -g pm2
     // 安装 node 倚赖包
     npm install --production
     ```
+    
 1. 运行项目
 
+    ``` 
+    // node启动，pm2启动下面有详解
+    node app.js
     ```
-    // 如果不习惯用pm2来管理可以直接通过一些命令，pm2下面有详解
-    node app.js
-    ```
 
 **推荐使用 git**
 
@@ -212,3 +213,8 @@ git 的传输协议有 https 和 ssh 两种，我们采用更加安全快速的�
     ```
     git checkout <PREV_TAG>
     ```
+
+### 致谢
+---
+
+> 感谢导师 *Roshanca* 提供帮助，可至 [Roshanca的博客](http://roshanca.com/) 查看更多优质文章。
