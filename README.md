@@ -213,7 +213,3 @@ git 的传输协议有 https 和 ssh 两种，我们采用更加安全快速的�
     ```
     git checkout <PREV_TAG>
     ```
-
-### 致谢
-
-> 感谢导师 **Roshanca** 提供帮助.🤠 🤠 🤠 
