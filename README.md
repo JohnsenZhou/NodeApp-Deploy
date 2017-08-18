@@ -43,7 +43,7 @@ Windows系统推荐使用 FileZilla
     yum install -y curl-devel expat-devel gettext-devel openssl-devel zlib-devel gcc perl-ExtUtils-MakeMaker
     ```
   
-1. 前往 [github](https://github.com/git/git/releases) 下载安装包，拷贝至 `/usr/src`(拷贝可通过可视化工具直接将相应文件拖入目标文件夹)，或者直接用 wget：
+1. 前往 [github](https://github.com/git/git/releases) 下载安装包，拷贝至 `/usr/src`，或者直接用 wget：
 
     ```
     cd /usr/src
