@@ -217,7 +217,32 @@ git 的传输协议有 https 和 ssh 两种，我们采用更加安全快速的�
 Nginx 反向代理
 ---
 
-执行完以上步骤，假设你的项目启在`localhost:3000`，想通过www.yourdomain.com来访问，需要通过如下步骤配置：
+> **Nginx** 入门参考材料[**前端工程师学习Nginx入门篇**](http://cnt1992.xyz/2016/03/18/simple-intro-to-nginx/)
 
-1. dfdf
-2. 
+执行完以上步骤，假设你的项目启在`localhost:3000`，想通过www.yourdomain.com来访问，需要通过如下步骤配置(以阿里云域名为例)：
+
+- 进入阿里云域名控制台，添加域名解析
+![阿里云](https://raw.githubusercontent.com/JohnsenZhou/NodeApp-Deploy/img/aliyun.jpg)
+- 配置反向代理
+
+ ```
+    server {
+        listen 80;
+        server_name www.yourdomain.com;
+        root /var/www/;
+        location / {
+            # 反向代理我们通过proxy_pass字段来设置
+            # 也就是当访问www.yourdomain.com的时候经过Nginx反向代理到服务器上的http://127.0.0.1:3000
+            proxy_pass http://127.0.0.1:3000;
+            proxy_set_header   Host   $host:$server_port;
+            proxy_set_header   X-Real-IP   $remote_addr;
+            client_max_body_size    100m;
+            proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
+        }
+    }
+   ```
+- 修改完上面配置信息之后，执行下面命令检查配置文件语法是否有误并且重新加载配置：
+
+  ```
+  nginx -t && nginx -s reload
+  ```
