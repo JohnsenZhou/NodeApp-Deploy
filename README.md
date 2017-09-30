@@ -213,3 +213,11 @@ git 的传输协议有 https 和 ssh 两种，我们采用更加安全快速的�
     ```
     git checkout <PREV_TAG>
     ```
+    
+Nginx 反向代理
+---
+
+执行完以上步骤，假设你的项目启在`localhost:3000`，想通过www.yourdomain.com来访问，需要通过如下步骤配置：
+
+1. dfdf
+2. 
