@@ -1,5 +1,4 @@
-# Node App 部署
-[原文地址](https://github.com/JohnsenZhou/NodeApp-Deploy)
+# Node App 简易部署
 
 环境 (System)：
 ---
